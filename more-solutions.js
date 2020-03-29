@@ -1,5 +1,5 @@
 
-function removeMinimalUsedCharacters1 (text) {
+function removeLeastUsedCharacters1 (text) {
   if (text.length <= 50) return [];
   const answer = new Set();
   const dict = new Map();

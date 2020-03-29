@@ -1,8 +1,8 @@
 
-function removeMinimalUsedCharacters (text) {
+function removeLeastUsedCharacters (text) {
   const dict = new Map();
   const answer = new Set();
-  const crucialChars = new Set()
+  const mostlyUsedChars = new Set()
 
   if (text.length <= 50) return answer;
 
@@ -24,17 +24,20 @@ function removeMinimalUsedCharacters (text) {
 
   while (counter < 50) {
     if (i < 0) return;
-    crucialChars.add(sortedArr[i][0]) // the character
-    counter += sortedArr[i][1] // num of appearances in the text
+    let currentChar = sortedArr[i][0];
+    let numOfApearances = sortedArr[i][1];
+
+    mostlyUsedChars.add(currentChar);
+    counter += numOfApearances;
     i--;
   }
 
   sortedDict.forEach((value, key) => {
-    if (!crucialChars.has(key)) answer.add(key);
+    if (!mostlyUsedChars.has(key)) answer.add(key);
   })
 
   return answer;
 }
 
 
-module.exports = removeMinimalUsedCharacters;
+module.exports = removeLeastUsedCharacters;
