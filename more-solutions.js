@@ -34,3 +34,5 @@ function removeLeastUsedCharacters1 (text) {
   }
   return answer;
 }
+
+module.exports = removeLeastUsedCharacters1;

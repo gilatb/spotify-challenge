@@ -2,7 +2,9 @@
 
 require('chai').should();
 
-const removeLeastUsedCharacters = require('../index.js');
+const { removeLeastUsedCharacters } = require('../index.js');
+const { returnTrimmedText } = require('../index.js');
+// const removeLeastUsedCharacters1 = require('../more-solutions');
 
 const text = 'If you want to jumpstart the process of talking to us about this role, here’s a little challenge: write a program that outputs the largest unique set of characters that can be removed from this paragraph without letting its length drop below 50.'
 const emptyStr = '';
@@ -13,6 +15,10 @@ describe('Test that the function removes minimal used characters', function () {
 
   it('should return a set', function () {
     removeLeastUsedCharacters(text).should.be.a('set');
+  });
+
+  it('should minimize the text length up to 50 characters', function () {
+    returnTrimmedText(text).should.have.length.above(49);
   });
 
   it('should return a set with the length smaller than the texts length', function () {

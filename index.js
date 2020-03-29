@@ -40,4 +40,14 @@ function removeLeastUsedCharacters (text) {
 }
 
 
-module.exports = removeLeastUsedCharacters;
+function returnTrimmedText (text) {
+  const charactersToEliminate = removeLeastUsedCharacters(text);
+  let trimmedText = text;
+  charactersToEliminate.length && charactersToEliminate.forEach((char) => {
+    let re = new RegExp(char, "g");
+    trimmedText = trimmedText.replace(re, '')
+  })
+  return trimmedText;
+}
+
+module.exports = { removeLeastUsedCharacters, returnTrimmedText };
